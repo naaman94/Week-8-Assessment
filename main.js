@@ -1,51 +1,64 @@
 console.log('GOOD LUCK 👩‍💻 👨‍💻')
-// Please focus
+// // Please focus
+// /* Q1:
+// Convert ES5 to ES6:
+// 1) 
+// // function sum(x,y){
+// //   return x+y
+// // }
+// 2) 
+// function consoleReturn(x,y){
+//   console.log(x)
+//   return y
+// }
 
-/* Q1:
-Convert ES5 to ES6:
-1) 
-function sum(x,y){
-  return x+y
-}
+// 3) 
+// var name="Alex"
+// var age=25
+// var result="My name is: " + name + "and my age is: " + age
 
-2) 
-function consoleReturn(x,y){
+// 4)
+// var food="Fried Chicken"
+// var color="Blue"
+// var object={
+//   food:food,
+//   color:color
+// }
+
+// 5)
+// var object2={
+//   multi:function(a,b){
+//     return a * b
+//   }
+// */
+
+
+
+//1) WRITE YOUR CODE UNDER THIS LINE         
+sum = (x, y) => x + y
+//2) WRITE YOUR CODE UNDER THIS LINE         
+consoleReturn = (x, y) => {
   console.log(x)
   return y
 }
 
-3) 
-var name="Alex"
-var age=25
-var result="My name is: " + name + "and my age is: " + age
+// 3 WRITE YOUR CODE UNDER THIS LINE
+let name = "Alex";
+let age = 25;
+let result = `My name is: ${name}and my age is: ${age}`
 
-4)
-var food="Fried Chicken"
-var color="Blue"
-var object={
-  food:food,
-  color:color
+//4 WRITE YOUR CODE UNDER THIS LINE         
+let food = "Fried Chicken"
+let color = "Blue"
+let object = {
+  food,
+  color,
 }
+//5 WRITE YOUR CODE UNDER THIS LINE         
 
-5)
-var object2={
-  multi:function(a,b){
-    return a * b
-  }
+let object2 = {
+  multi: (a, b) => a * b
 }
-*/
-
-//1) WRITE YOUR CODE UNDER THIS LINE         
-
-//2) WRITE YOUR CODE UNDER THIS LINE         
-
-//3) WRITE YOUR CODE UNDER THIS LINE         
-
-//4) WRITE YOUR CODE UNDER THIS LINE         
-
-//5) WRITE YOUR CODE UNDER THIS LINE         
-
-
 
 
 
@@ -73,6 +86,23 @@ Output =>
 */
 
 // WRITE YOUR CODE UNDER THIS LINE
+class Computer {
+  constructor(OS, RAM, CPU) {
+    this.OS = OS,
+      this.RAM = RAM,
+      this.CPU = CPU
+  }
+  doubleRAM() {
+    this.RAM = 2 * RAM
+    return this.RAM
+  }
+}
+
+let computer1 = new Computer("Windows", 16, "I7")
+let computer2 = new Computer("Linux", 8, "I5")
+let computer3 = new Computer("Mac", 4, "I3")
+
+
 
 
 
@@ -86,8 +116,8 @@ please fix the errors inside them
 */
 
 // App Component
+import React, { Component } from 'react';
 import Tasks from './components/Tasks';
-
 export default class App extends Component {
   state = {
     title: 'ELIZABETH GREENE',
@@ -98,16 +128,17 @@ export default class App extends Component {
   }
   render() {
     return (
-      <h1>App Component => state.title</h1>
-      <button onClick={this.changeTitle}>Change Title</button>
-      <Tasks tasks={this.todos} changeTitleFromChild={this.changeTitle} />
+      <>
+        <h1>App Component =>{state.title}</h1>
+        <button onClick={this.changeTitle}>Change Title</button>
+        <Tasks tasks={this.state.todos} changeTitleFromChild={this.changeTitle} />
+      </>
     );
   }
 }
 
 // Tasks Component
 import React, { Component } from 'react';
-
 class Tasks extends Component {
   state = {
     day: "Sat"
@@ -119,10 +150,13 @@ class Tasks extends Component {
   render() {
     return (
       <div>
-        <h1>Tasks Component => state.day</h1>
+        <h1>Tasks Component => {state.day}</h1>
         <button onClick={this.changeDay}>Change Tasks State</button>
-        <button onClick={changeTitle}>Change App State</button>
+        <button onClick={this.props.changeTitleFromChild}>Change App State</button>
       </div>
     );
   }
 }
+export default Tasks
+
+
